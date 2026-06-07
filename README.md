@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Gloverse
 
-## Getting Started
+Gloverse is a modern, full-stack e-commerce web application designed to provide users with a seamless food delivery experience. Customers can explore curated restaurant menus, securely manage their profiles, and place real-time food orders, while staff utilize a dedicated administrative dashboard to track workflows and catalog configurations.
 
-First, run the development server:
+## Live Demo & Links
+* **Repository:** [GitHub Link](https://github.com/Gloverse-Riders/pdss)
 
+---
+
+## Features
+
+### Customer Experience
+* **Dynamic Menu Exploration:** Browse through structured restaurant menus with detailed item specifications, pricing, and ingredients.
+* **Seamless Checkout:** Add items to a persistent shopping cart and seamlessly simulate incoming orders.
+* **Personalized Profile Management:** Securely configure user profile details, save multi-address settings, and store payment preferences.
+
+### Security & Core Infrastructure
+* **Token-Based Authentication:** Outfitted with robust session infrastructure utilizing **JSON Web Tokens (JWT)** to manage registration, secure login flows, and route access guards.
+* **Decoupled Asset Management:** Scalable storage architecture engineered to cleanly isolate lightweight metadata transactions from cloud-hosted image files.
+
+### Administrative Dashboard
+* **Menu Lifecycle Tools:** Full CRUD operations for administrators to seamlessly update, delete, or add new dishes to active catalogs.
+* **Order Tracking Pipeline:** Real-time visibility into incoming purchases to monitor order fulfillment status.
+* **User Accounts Oversight:** Centralized command module to oversee registered client profiles and evaluate platform health.
+
+---
+
+## Architecture & Tech Stack
+
+Gloverse follows a decoupled client-server pattern designed for micro-storage optimization:
+
+* **Frontend:** React, Next.js (App Router), Tailwind CSS
+* **Backend:** Node.js, Express, REST APIs
+* **User Session Management:** JSON Web Tokens (JWT)
+* **Primary Database (Metadata):** MongoDB (NoSQL schema storing user records, logs, names, and emails)
+* **Cloud Object Storage (Static Assets):** Amazon S3 (Hosting high-definition menu cards, dish imagery, and profile thumbnails)
+
+---
+
+
+
+## Installation & Setup
+
+### Prerequisites
+* Node.js
+* MongoDB database instance
+* AWS Account with an active Amazon S3 Bucket
+
+### 1. Clone the Repository
 ```bash
+git clone [https://github.com/Gloverse-Riders/pdss.git](https://github.com/Gloverse-Riders/pdss.git)
+cd pdss
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_signing_key
+
+# AWS S3 Configurations
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+AWS_REGION=your_bucket_region
+AWS_S3_BUCKET_NAME=your_gloverse_bucket_name
+# Install root, backend, and frontend dependencies
+npm install
+# Start both frontend and backend concurrently
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
